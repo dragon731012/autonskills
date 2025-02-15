@@ -106,33 +106,12 @@ void pre_auton(void) {
 }
 
 void autonomous(void) {
-  dt.setDriveVelocity(40,percent);
+  dt.setDriveVelocity(65,percent);
   dt.setTurnVelocity(40,percent);
   intake.setVelocity(100,percent);
 
-  dt.driveFor(reverse,3.5,inches);
-  wait(1,sec);
-  wall.spinFor(forward,2,seconds);
-  dt.driveFor(reverse,5,inches);
-  wait(0.5,seconds);
-  dt.turnFor(-34,degrees);
-  dt.driveFor(reverse,12,inches);
-  useClinch();
-  dt.turnFor(70,degrees);
-  intake.spin(forward);
-  dt.driveFor(forward,13,inches);
-  wait(2,seconds);
-  dt.driveFor(forward,9,inches);
-  wait(3,seconds);
-  dt.turnFor(37,degrees);
-  useClinch();
-  dt.driveFor(reverse,15,inches);
-  dt.driveFor(forward,10,inches);
-
-  /*
   //put the ring on the wall stake
   wall.spinFor(forward,1.5,seconds);
-
 
   //get the clinch
   dt.driveFor(reverse,7,inches);
@@ -147,31 +126,59 @@ void autonomous(void) {
   dt.turnFor(-62,degrees);
   intake.spin(forward);
   dt.driveFor(forward,8,inches);
-  wait(1.5,sec);
+  wait(2,sec);
 
   //get the second ring
   dt.driveFor(forward,12,inches);
   wait(2.5,sec);
-
   
   //put into positive corner
   dt.turnFor(-45,degrees);
   dt.driveFor(reverse,3,inches);
+  wait(.5,sec);
   useClinch();
 
   //Get MoGo 2
   dt.turnFor(33,degrees);
-  dt.driveFor(forward,24,inches);
-  dt.driveFor(reverse,98,inches,false);
   wait(5,sec);
   useClinch();
 
   //Get Ring 2.1
   dt.turnFor(95,degrees);
   intake.spin(forward);
-  dt.driveFor(9,inches);
+  dt.driveFor(forward,9,inches);
   wait(1,seconds);
 
+  //Get Corner 2
+  dt.turnFor(45,deg); 
+  dt.driveFor(reverse,10,inches);
+  useClinch();
+
+  //Get MoGo 3
+  dt.turnFor(-45,degrees);
+  dt.driveFor(forward,96,inches);
+  dt.turnFor(-33,degrees);
+  dt.driveFor(reverse,7,inches);
+  useClinch();
+
+  //Get Corner 3
+  dt.turnFor(43,degrees);
+  dt.driveFor(forward,11,inches);
+  useClinch();
+
+  //Get Mogo 4
+  dt.driveFor(reverse,11,inches);
+  dt.turnFor(-43,degrees);
+  dt.driveFor(reverse,36,inches);
+  useClinch();
+
+  //Get Corner 4
+  dt.turnFor(33,degrees);
+  dt.driveFor(reverse,11,inches);
+  useClinch();
+
+
+/*
   //Get Ring 2.2
   dt.driveFor(5,inches);
   wait(1,sec);
@@ -180,20 +187,13 @@ void autonomous(void) {
   dt.turnFor(25,degrees);
   dt.driveFor(7,inches);
 
-  //Get Corner 2
-  dt.turnFor(45,deg);
-  dt.driveFor(reverse,10,inches);
-  useClinch();
-
-  //Get Goal 3
-
 
 /*
   //get the third ring
   dt.driveFor(reverse,8,inches);
   wait(2,sec);
 
-  
+
   /*
   //Get Ring 3
   dt.driveFor(reverse,5,inches);
@@ -271,7 +271,6 @@ void usercontrol(void) {
     bottomright.spin(forward);
     topleft.spin(forward);
     topright.spin(forward);
-
     wait(20, msec); 
   }
 }
@@ -289,3 +288,4 @@ int main() {
     wait(100, msec);
   }
 }
+
