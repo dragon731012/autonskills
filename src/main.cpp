@@ -39,7 +39,7 @@ motor_group leftmotors = motor_group(topleft, bottomleft);
 motor_group rightmotors = motor_group(topright, bottomright);
 motor_group intake = motor_group(intake1,intake2,intake3);
 
-drivetrain dt = drivetrain(leftmotors, rightmotors, 300, 320, 320, mm, 1);
+drivetrain dt = drivetrain(leftmotors, rightmotors, 8.63937979737, 15, 9, inches, 1.25);
 
 digital_out* clinch;
 
@@ -110,6 +110,26 @@ void autonomous(void) {
   dt.setTurnVelocity(40,percent);
   intake.setVelocity(100,percent);
 
+  dt.driveFor(reverse,3.5,inches);
+  wait(1,sec);
+  wall.spinFor(forward,2,seconds);
+  dt.driveFor(reverse,5,inches);
+  wait(0.5,seconds);
+  dt.turnFor(-34,degrees);
+  dt.driveFor(reverse,12,inches);
+  useClinch();
+  dt.turnFor(70,degrees);
+  intake.spin(forward);
+  dt.driveFor(forward,13,inches);
+  wait(2,seconds);
+  dt.driveFor(forward,9,inches);
+  wait(3,seconds);
+  dt.turnFor(37,degrees);
+  useClinch();
+  dt.driveFor(reverse,15,inches);
+  dt.driveFor(forward,10,inches);
+
+  /*
   //put the ring on the wall stake
   wall.spinFor(forward,1.5,seconds);
 
